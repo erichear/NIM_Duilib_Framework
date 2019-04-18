@@ -1,3 +1,5 @@
+#include "Button.h"
+
 template<typename InheritType>
 ButtonTemplate<InheritType>::ButtonTemplate()
 {

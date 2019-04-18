@@ -58,7 +58,12 @@ public:
 			{
 				AtExitManager::RegisterCallback([&](void*) {
 					instance.reset(nullptr);
+#if _MSC_VER > 1900
+					oc._Opaque = 0;
+#else
 					oc._Flag = 0;
+#endif
+
 				}, nullptr);
 			}
 		});

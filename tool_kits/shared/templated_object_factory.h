@@ -13,8 +13,8 @@ namespace shared
 		using _ParentType = nbase::Singleton<TemplatedObjectFactory<typename TBase, typename TOBJFLG>>;
 		using _MyType = TemplatedObjectFactory<typename TBase, typename TOBJFLG>;
 		friend class TemplatedObjectFactoryWrapper;
-		SingletonHideConstructor(_MyType);
-	private:
+
+	public:
 		TemplatedObjectFactory() = default;
 		~TemplatedObjectFactory() = default;
 	private:		
@@ -71,7 +71,7 @@ namespace shared
 		template<typename TBase, typename TObject, typename TOBJFLG, typename... TParam>
 		static void RegisteredOjbect(const TOBJFLG& flg, const TParam&... params)
 		{
-			using TDecayType = std::decay<TOBJFLG>::type;
+			using TDecayType = typename std::decay<TOBJFLG>::type;
 			if (std::is_base_of<TBase, TObject>::value)
 			{
 				auto&& manager = TemplatedObjectFactory<TBase, TDecayType>::GetInstance();
@@ -83,7 +83,7 @@ namespace shared
 		template<typename TBase, typename TFLG>
 		static auto InstantiateSharedRegisteredOjbect(const TFLG& flag)->std::shared_ptr<TBase>
 		{
-			using TDecayType = std::decay<TFLG>::type;
+			using TDecayType = typename std::decay<TFLG>::type;
 			auto&& manager = TemplatedObjectFactory<TBase, TDecayType>::GetInstance();
 			if (manager != nullptr)
 				return manager->CreateSharedObject(flag);
@@ -93,7 +93,7 @@ namespace shared
 		template<typename TBase, typename TFLG>
 		static auto InstantiateRegisteredOjbect(const TFLG& flag)->TBase*
 		{
-			using TDecayType = std::decay<TFLG>::type;
+			using TDecayType = typename std::decay<TFLG>::type;
 			auto&& manager = TemplatedObjectFactory<TBase, TDecayType>::GetInstance();
 			if (manager != nullptr)
 				return manager->CreateObject(flag);
@@ -103,7 +103,7 @@ namespace shared
 		template<typename TBase, typename TFLG>
 		static auto InstantiateAllRegisteredSharedOjbect()->std::list<std::shared_ptr<TBase>>
 		{
-			using TDecayType = std::decay<TFLG>::type;
+			using TDecayType = typename std::decay<TFLG>::type;
 			std::list<std::shared_ptr<TBase>> ret;
 			auto&& manager = TemplatedObjectFactory<TBase, TDecayType>::GetInstance();
 			if (manager != nullptr)
