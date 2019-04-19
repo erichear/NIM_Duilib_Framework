@@ -3,7 +3,7 @@
 NIM Duilib is a UI development framework for Windows, extend some new features based on the original [Duilib](https://github.com/duilib/duilib). Integrated Google base library with threads/memory/closures. You can use this framework to develop any desktop application you want.
 
 ![GitHub](https://img.shields.io/badge/license-MIT-green.svg)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/netease-im/NIM_Duilib_Framework?branch=master&svg=true)](https://ci.appveyor.com/project/netease-im/NIM_Duilib_Framework)
+![Build status](https://ci.appveyor.com/api/projects/status/u29yl0j7pasopm3h/branch/master?svg=true)
 
 [中文介绍](README.md)
 
@@ -16,6 +16,10 @@ NIM Duilib is a UI development framework for Windows, extend some new features b
  - CEF control support（based on CEF 2623, support XP）
  - Touch device support（surface, wacom）
  - Abstract rendering interface (support for other rendering engines)
+
+## Preview
+
+![preview](docs/PREVIEW.png)
 
 ## Start
 

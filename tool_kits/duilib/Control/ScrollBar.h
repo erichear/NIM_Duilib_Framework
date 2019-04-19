@@ -220,7 +220,7 @@ public:
 	ControlStateType GetThumbState() { return m_uThumbState; }
 
 private:
-	void ScrollBar::ScrollTimeHandle();
+	void ScrollTimeHandle();
 
 	/// 绘制相关函数
 	void PaintBk(IRenderContext* pRender);
